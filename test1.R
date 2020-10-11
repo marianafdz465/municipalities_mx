@@ -1,6 +1,9 @@
 library(dplyr)
 library(fuzzyjoin)
 library(reclin)
+library(tidyverse)
+
+
 
 df_dictionary_mx <- read_csv("./data_raw/df_mexico.csv")
 
@@ -36,5 +39,5 @@ df_new <- df_dictionary_states %>%
                        by = c(misspelling = "entidad")) %>%
     select(entidad, nom_abr, cve_ent)
 
-df_new <- stringdist_left_join(dummy_states, df_dictionary_states, by = "entidad", method = "dl" ,
+df_new <- stringdist_right_join(dummy_states, df_dictionary_states, by = "entidad", method = "dl" ,
                                ignore_case = TRUE, max_dist = 4)

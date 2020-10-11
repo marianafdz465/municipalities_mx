@@ -23,6 +23,10 @@
 #' @return A matrix of the infile
 #' @export
 clean_states() <- function(column_name){
+  #Set Rules
+
+
+
 
 }
 
